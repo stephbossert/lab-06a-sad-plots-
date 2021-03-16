@@ -1,7 +1,7 @@
 ---
 title: "Lab 06 - Sad plots"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Steph Bossert"
+date: "16 Mar 21"
 output: github_document
 ---
 
@@ -10,14 +10,28 @@ output: github_document
 ```{r load-packages, message = FALSE}
 library(tidyverse) 
 library(dsbox) 
+staff <- read_csv("data/instructional-staff.csv")
 ```
 
 ### Exercise 1
+Thought exercise: There should be 55 rows... 
+```{r Pivotlonger}
+staff_long <- staff %>%
+  pivot_longer(cols = -faculty_type, names_to = "year") %>%
+  mutate(value = as.numeric(value))
+view(staff_long)
+```
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r plot_line}
+ staff_long %>%
+  ggplot(aes(x = year, y = value, color = faculty_type)) +
+  geom_line()
+staff_long %>%
+  ggplot(aes(x = year, y = value, group = faculty_type, color = faculty_type)) +
+  geom_line()+
+  ggtitle("Percent Faculty Hire by Type") +
+  ylab("Percent")
+```
 
 ### Exercise 2
 

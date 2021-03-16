@@ -1,21 +1,21 @@
 Lab 06 - Sad plots
 ================
-Insert your name here
-Insert date here
+library(usethis)
+use_git_config(user.name = "Steph Bossert", 
+               user.email = "bosssa20@wfu.edu")
 
-### Load packages and data
+### Load packages and data.
 
-``` r
+```{r Packages}
 library(tidyverse) 
 library(dsbox) 
 ```
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here. Add code
-chunks as needed. Don’t forget to label your code chunk. Do not use
-spaces in code chunk labels.
-
+```{r Ex1}
+library(tidyverse)
+````
 ### Exercise 2
 
 Remove this text, and add your answer for Exercise 1 here. Add code
